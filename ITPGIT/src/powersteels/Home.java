@@ -5,6 +5,10 @@
  */
 package powersteels;
 
+import java.awt.Color;
+import java.awt.Container;
+import javax.swing.BorderFactory;
+
 /**
  *
  * @author Rama41222
@@ -16,6 +20,8 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        Container c = this.getContentPane();
+        c.setBackground(Color.decode("#03a9f4")); 
     }
 
     /**
@@ -27,21 +33,114 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jUser = new javax.swing.JTextField();
+        jPass = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        login = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+        setBackground(new java.awt.Color(3, 169, 244));
+        setExtendedState(MAXIMIZED_BOTH);
+        setFocusCycleRoot(false);
+
+        jUser.setBackground(new java.awt.Color(3, 169, 244));
+        jUser.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
+        jUser.setForeground(new java.awt.Color(255, 255, 255));
+        jUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jUser.setToolTipText("Username");
+        jUser.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.decode("#FFFFFF")));
+        jUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jUserMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jUserMouseEntered(evt);
+            }
+        });
+        jUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUserActionPerformed(evt);
+            }
+        });
+
+        jPass.setBackground(new java.awt.Color(3, 169, 244));
+        jPass.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
+        jPass.setForeground(new java.awt.Color(255, 255, 255));
+        jPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPass.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.decode("#FFFFFF")));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Password");
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Avenir Next", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Username");
+
+        login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(300, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(login)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPass, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(jUser))))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(login)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUserMouseClicked
+
+    }//GEN-LAST:event_jUserMouseClicked
+
+    private void jUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUserMouseEntered
+        // jUser.enable(true);
+    }//GEN-LAST:event_jUserMouseEntered
+
+    private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jUserActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +178,10 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPass;
+    private javax.swing.JTextField jUser;
+    private javax.swing.JButton login;
     // End of variables declaration//GEN-END:variables
 }
