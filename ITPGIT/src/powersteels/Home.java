@@ -139,7 +139,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jUserActionPerformed
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+       main_ui a = new main_ui();
+       a.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_loginActionPerformed
 
     /**
