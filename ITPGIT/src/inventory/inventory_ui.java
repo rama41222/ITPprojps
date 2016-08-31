@@ -53,11 +53,20 @@ public class inventory_ui extends javax.swing.JFrame {
         updatebtn = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         clearbtn = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
         printbtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jToolBar2 = new javax.swing.JToolBar();
+        addbtn1 = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
+        updatebtn1 = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JToolBar.Separator();
+        clearbtn1 = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JToolBar.Separator();
+        printbtn1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -147,7 +156,7 @@ public class inventory_ui extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -177,6 +186,7 @@ public class inventory_ui extends javax.swing.JFrame {
         clearbtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         clearbtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(clearbtn);
+        jToolBar1.add(jSeparator3);
 
         printbtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         printbtn.setText("Print");
@@ -250,6 +260,41 @@ public class inventory_ui extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel4");
 
+        jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+
+        addbtn1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        addbtn1.setText("Add");
+        addbtn1.setFocusable(false);
+        addbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        addbtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(addbtn1);
+        jToolBar2.add(jSeparator4);
+
+        updatebtn1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        updatebtn1.setText("Update");
+        updatebtn1.setFocusable(false);
+        updatebtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        updatebtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(updatebtn1);
+        jToolBar2.add(jSeparator5);
+
+        clearbtn1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        clearbtn1.setText("Clear");
+        clearbtn1.setFocusable(false);
+        clearbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        clearbtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(clearbtn1);
+        jToolBar2.add(jSeparator6);
+
+        printbtn1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        printbtn1.setText("Print");
+        printbtn1.setFocusable(false);
+        printbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        printbtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(printbtn1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -260,15 +305,19 @@ public class inventory_ui extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(644, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGap(205, 205, 205)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("View Stock", jPanel2);
@@ -302,7 +351,7 @@ public class inventory_ui extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Create Stock", jPanel3);
@@ -317,7 +366,7 @@ public class inventory_ui extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("View Requistion", jPanel4);
@@ -332,7 +381,7 @@ public class inventory_ui extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Invoice", jPanel5);
@@ -347,7 +396,7 @@ public class inventory_ui extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Indent", jPanel6);
@@ -509,7 +558,9 @@ public class inventory_ui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addbtn;
+    private javax.swing.JButton addbtn1;
     private javax.swing.JButton clearbtn;
+    private javax.swing.JButton clearbtn1;
     private javax.swing.JTextArea description;
     private javax.swing.JTextField itemCode;
     private javax.swing.JLabel jLabel1;
@@ -549,14 +600,21 @@ public class inventory_ui extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
+    private javax.swing.JToolBar.Separator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTextField name;
     private javax.swing.JButton printbtn;
+    private javax.swing.JButton printbtn1;
     private javax.swing.JTextField search;
     private javax.swing.JButton updatebtn;
+    private javax.swing.JButton updatebtn1;
     // End of variables declaration//GEN-END:variables
 }
