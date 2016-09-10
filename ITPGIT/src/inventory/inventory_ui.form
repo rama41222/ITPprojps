@@ -202,8 +202,8 @@
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="itemCode1" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="itemCode1" min="-2" pref="137" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel6" min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="name1" min="-2" pref="158" max="-2" attributes="0"/>
