@@ -5,10 +5,7 @@
  */
 package inventory;
 
-/**
- *
- * @author Udeshika
- */
+
 public class item {
     
     private String itemCode;
