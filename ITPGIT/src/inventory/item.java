@@ -5,12 +5,10 @@
  */
 package inventory;
 
-/**
- *
- * @author Udeshika
- */
+
 public class item {
     
+    private String itemCode;
     private String itemName;
     private String desc;
     
@@ -29,12 +27,28 @@ public class item {
     }
     
     
-    void code(String d){
+    void setcode(String d){
     
-        desc=d;
+        itemCode=d;
         
     }
     
-   
+    String getName(){
+    
+        return itemName;
+    
+    }
+    
+    String getDesc(){
+    
+        return desc;
+    
+    }
+    
+     String getCode(){
+    
+        return itemCode;
+    
+    }
     
 }

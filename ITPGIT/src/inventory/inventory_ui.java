@@ -7,6 +7,13 @@ package inventory;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.print.PrinterException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.MessageFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -14,15 +21,22 @@ import java.awt.Container;
  */
 public class inventory_ui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form inventory_ui
-     */
+    item i = new item();
+
+    PreparedStatement ps = null;
+    Connection con = null;
+    ResultSet rs = null;
+    
     public inventory_ui() {
         initComponents();
         
         Container c =  getContentPane();
         c.setBackground(Color.decode("#4B515D"));
-                
+        initComponents();
+        
+        con = mysqlConnection.connDb();
+        Update.updateTable("SELECT * from item", itemTable1);    
+        
     }
 
     /**
@@ -49,7 +63,7 @@ public class inventory_ui extends javax.swing.JFrame {
         itemCode1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        name1 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         description1 = new javax.swing.JTextArea();
@@ -174,6 +188,11 @@ public class inventory_ui extends javax.swing.JFrame {
         updatebtn1.setFocusable(false);
         updatebtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         updatebtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        updatebtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatebtn1ActionPerformed(evt);
+            }
+        });
         jToolBar2.add(updatebtn1);
         jToolBar2.add(jSeparator6);
 
@@ -182,6 +201,11 @@ public class inventory_ui extends javax.swing.JFrame {
         clearbtn1.setFocusable(false);
         clearbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         clearbtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        clearbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearbtn1ActionPerformed(evt);
+            }
+        });
         jToolBar2.add(clearbtn1);
         jToolBar2.add(jSeparator8);
 
@@ -190,6 +214,11 @@ public class inventory_ui extends javax.swing.JFrame {
         printbtn1.setFocusable(false);
         printbtn1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         printbtn1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        printbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printbtn1ActionPerformed(evt);
+            }
+        });
         jToolBar2.add(printbtn1);
 
         itemCode1.setToolTipText("");
@@ -202,7 +231,7 @@ public class inventory_ui extends javax.swing.JFrame {
         jLabel5.setText("  Item Name");
         jLabel5.setToolTipText("");
 
-        name1.setToolTipText("");
+        name.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setText("  Discription");
@@ -236,12 +265,12 @@ public class inventory_ui extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addGap(284, 284, 284)
                         .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1023, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,33 +295,32 @@ public class inventory_ui extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(itemCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(itemCode1, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(name))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(835, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(itemCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -1006,6 +1034,50 @@ public class inventory_ui extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addbtn1ActionPerformed
 
+    private void updatebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtn1ActionPerformed
+     
+        try{
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure ? ", "Update Confirmation", JOptionPane.YES_NO_OPTION);
+            
+            if(confirm == 0){
+                i.setcode(itemCode1.getText());
+                i.setName(name.getText() );
+                i.setDesc(description1.getText());
+               
+                String sql = "Update item set name = '" + i.getName() + "', description = '" + i.getDesc() + "' where item_code= '" + i.getCode() + "'";
+                ps = con.prepareStatement(sql);
+
+                ps.execute();
+                JOptionPane.showMessageDialog(null, "Successfully Updated the record");
+                Update.updateTable("SELECT * from item", itemTable1);
+            }
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_updatebtn1ActionPerformed
+
+    private void clearbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearbtn1ActionPerformed
+        
+        itemCode1.setText(null);
+        name.setText(null);
+        description1.setText(null);
+      
+    }//GEN-LAST:event_clearbtn1ActionPerformed
+
+    private void printbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printbtn1ActionPerformed
+        
+        MessageFormat header = new MessageFormat("Items Report");
+        MessageFormat footer = new MessageFormat("Page{0, number, int}");
+        try {
+            itemTable1.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (PrinterException ex) {
+            JOptionPane.showMessageDialog(null, "Printing Error : "+ ex);
+        }
+        
+    }//GEN-LAST:event_printbtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1132,7 +1204,7 @@ public class inventory_ui extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
-    private javax.swing.JTextField name1;
+    private javax.swing.JTextField name;
     private javax.swing.JTextField price1;
     private javax.swing.JButton printbtn1;
     private javax.swing.JButton printbtn2;
